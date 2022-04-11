@@ -1,36 +1,62 @@
-// it selects the random string 
+// it selects the random string
 
-let choices = ['rock', 'paper' , 'scissors']
+let choices = ["rock", "paper", "scissors"];
 
 function computerPlay() {
-    const randomChoice = Math.floor((Math.random() * choices.length));
+    const randomChoice = Math.floor(Math.random() * choices.length);
     const randomName = choices[randomChoice];
-    console.log(randomName);
+    return randomName;
+    // console.log(randomName);
 }
 
 computerPlay();
 
 
-// 
+
+
+//
 
 function playRound(playerSelection, computerSelection) {
-   if("rock" > "paper") {
-       console.log("rock beats paper");
-   }
+    if (playerSelection == "rock" && computerSelection == "rock") {
+        return "you both choose rock, it's a tie ! try again...";
+    }
 
-   else if ("paper" < "scissors") {
-        console.log("scissors beats paper");
-   }
+    if (playerSelection == "paper" && computerSelection == "paper") {
+        return "you both choose paper, it's a tie ! try again...";
+    }
 
- else if ("rock" > "scissors") {
-       console.log("rock beats scissors")
-   }
+    if (playerSelection == "scissors" && computerSelection == "scissors") {
+        return "you both choose scissors, it's a tie ! try again...";
+    }
 
+    if (playerSelection == "rock" && computerSelection == "paper") {
+        return "you lose! paper beats rock";
+    }
 
+    if (playerSelection == "paper" && computerSelection == "rock") {
+        return "you win! paper beats rock";
+    }
+
+    if (playerSelection == "paper" && computerSelection == "scissors") {
+        return "you lose! scissors beats paper";
+    }
+
+    if (playerSelection == "scissors" && computerSelection == "paper")
+        return "you win! scissors beats paper";
+
+    if (playerSelection == "scissors" && computerSelection == "rock") {
+        return "you lose! rock beats scissors";
+    }
+
+    if (playerSelection == "rock" && computerSelection == "scissors") {
+        return "you win! rock beats scissors";
+    }
 }
-
 playRound();
 
-const playerSelection = "rock";
+const playerSelection = "PAPER";
+const toLowerCase = playerSelection.toLowerCase();
+// console.log(toLowerCase)
 const computerSelection = computerPlay();
-console.log(playRound(playerSelection , computerSelection));
+
+console.log(playRound(toLowerCase, computerSelection));
