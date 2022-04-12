@@ -1,6 +1,8 @@
 // it selects the random string
 
 let choices = ["rock", "paper", "scissors"];
+let playerScore = 0;
+let computerScore = 0;
 
 function computerPlay() {
     const randomChoice = Math.floor(Math.random() * choices.length);
@@ -10,9 +12,6 @@ function computerPlay() {
 }
 
 computerPlay();
-
-
-
 
 //
 
@@ -54,9 +53,37 @@ function playRound(playerSelection, computerSelection) {
 }
 playRound();
 
-const playerSelection = "PAPER";
-const toLowerCase = playerSelection.toLowerCase();
-// console.log(toLowerCase)
-const computerSelection = computerPlay();
 
-console.log(playRound(toLowerCase, computerSelection));
+
+const userInput = prompt("what's your choice?");
+const playerSelection = userInput.toLowerCase();
+const computerSelection = computerPlay();
+console.log(`you picked ${playerSelection}`);
+const result =(playRound(playerSelection, computerSelection));
+// console.log(result);
+
+function game() {
+     for (let i = 0; i < 5; i++) {
+        console.log(playRound(playerSelection, computerSelection));
+     }
+   
+
+    if(result.includes("win")) {
+        playerScore++;
+
+    }
+
+    else if (result.includes("lose")) {
+        computerScore++;
+    }
+
+    else if (result.includes("tie")) {
+        ++playerScore;
+        ++computerScore;
+    }
+
+    console.log(`player score is ${playerScore}`);
+    console.log(`computer score is ${computerScore}`);
+}
+
+game();
