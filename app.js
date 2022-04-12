@@ -55,35 +55,53 @@ playRound();
 
 
 
-const userInput = prompt("what's your choice?");
-const playerSelection = userInput.toLowerCase();
-const computerSelection = computerPlay();
-console.log(`you picked ${playerSelection}`);
-const result =(playRound(playerSelection, computerSelection));
+
+
+// let result =(playRound(playerSelection, computerSelection));
 // console.log(result);
 
 function game() {
-     for (let i = 0; i < 5; i++) {
-        console.log(playRound(playerSelection, computerSelection));
+     for (let i = 1; i < 6; i++) {
+        let userInput = prompt("what's your choice? rock-paper-scissors");
+        let playerSelection = userInput.toLowerCase();
+        console.log("game", i);
+        let computerSelection = computerPlay();
+        console.log(`you picked ${playerSelection}`);
+        let result =(playRound(playerSelection, computerSelection));
+        console.log(result);
+
+        if(result.includes("win")) {
+            playerScore++;
+    
+        }
+    
+        else if (result.includes("lose")) {
+            computerScore++;
+    
+        }
+    
+        else if (result.includes("tie")) {
+            playerScore;
+            computerScore;
+        }
+    
+        console.log(`player score is ${playerScore}`);
+        console.log(`computer score is ${computerScore}`);
+    }
+            function winner() {
+                if (computerScore > playerScore) {
+                    console.log("computer wins, best of luck next time")
+                }
+
+                else if (playerScore > computerScore) {
+                    console.log("you're natural, suck it up AI")
+                }
+
+                else if (playerScore == computerScore) {
+                    console.log("you both suck, try again")
+                }
+            }
+            winner();
      }
    
-
-    if(result.includes("win")) {
-        playerScore++;
-
-    }
-
-    else if (result.includes("lose")) {
-        computerScore++;
-    }
-
-    else if (result.includes("tie")) {
-        ++playerScore;
-        ++computerScore;
-    }
-
-    console.log(`player score is ${playerScore}`);
-    console.log(`computer score is ${computerScore}`);
-}
-
 game();
