@@ -16,6 +16,7 @@ body {
     text-align: center;
     font-family: 'Poppins', sans-serif;
     font-weight: 400;
+    min-height: 100vh;
 }
 
 .container{
@@ -23,6 +24,7 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    background-color: #F8ECD1;
 }
 
 
@@ -47,6 +49,7 @@ body {
     width: 4em;
     background-color: #85586F;
     background-color: #DEB6AB;
+    background-color: #AC7D88;
     border-radius: .5em;
     cursor: pointer;
      border:2px solid #85586F;
@@ -65,12 +68,71 @@ body {
     display: none;
 } */
 
-.score {
+/* .score {
     border:3px solid #AC7D88;
     height: 7em;
     width: 10em;
 }
 
-.flex-score p{
-    padding: .5em;
- }
+.flex-score {
+    display: flex;
+}
+
+.player {
+    border-right: 2px solid #85586F;
+}
+*/
+.score p{
+    padding: .5em; 
+    font-size: 1.3em;
+ } 
+
+
+.score {
+    display: flex;
+
+}
+
+.weapon-choice button {
+    margin: 1.5em;
+    padding: 2em;
+    background-color: #DEB6AB;
+    font-size: 1.3em;
+    font-family: inherit;
+    border:3px solid #85586F;
+    border-radius: .5em;
+}
+
+.weapon-choice button:hover {
+    transform: scale(1.1);
+}
+
+
+.box {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border:1px solid red;
+    background-color: #F8ECD1;
+    height: 200px;
+    width: 300px;
+
+}
+.result {
+    font-size: 1.5em;
+    padding-bottom: 0.5em;
+}
+
+.box button {
+    padding:1em;
+    background-color:#AC7D88;
+    border: 1px solid #85586F;
+    color:white;
+    border-radius: .5em;
+    font-size: 1.1em;
+    
+}
+
+
