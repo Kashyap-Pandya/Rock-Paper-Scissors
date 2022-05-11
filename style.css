@@ -1,1 +1,76 @@
-                                                                                                                                                                                                                    
+@import url('https://fonts.googleapis.com/css2?family=Oxanium&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+/* 
+https://colorhunt.co/palette/f8ecd1deb6abac7d8885586f
+color palate
+*/
+
+* {
+    box-sizing: border-box;
+    padding:0;
+    margin: 0;
+}
+
+body {
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+.header {
+    font-family: 'Oxanium', cursive;
+    height: 6em;
+    background-color: #DEB6AB;
+    padding-top:2em;
+    font-size:1.7em;
+    width: 100vw;
+}
+
+.battle-number h2 {
+    margin-top:2em;
+    font-size: 1.5em;
+    font-weight: inherit;
+}
+
+.battle-number button {
+    margin:1em;
+    height: 4em;
+    width: 4em;
+    background-color: #85586F;
+    background-color: #DEB6AB;
+    border-radius: .5em;
+    cursor: pointer;
+     border:2px solid #85586F;
+}
+
+.battle-number button:hover {
+    transform: scale(1.1);
+}
+
+.intro {
+    margin: 2em 0;
+    font-size:1.3em;
+}
+
+/* .remove {
+    display: none;
+} */
+
+.score {
+    border:3px solid #AC7D88;
+    height: 7em;
+    width: 10em;
+}
+
+.flex-score p{
+    padding: .5em;
+ }

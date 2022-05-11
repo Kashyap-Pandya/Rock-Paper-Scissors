@@ -58,7 +58,7 @@ playRound();
 
 function game() {
     for (let i = 1; i < 6; i++) {
-        let userInput = prompt("what's your choice? rock-paper-scissors");
+        // let userInput = prompt("what's your choice? rock-paper-scissors");
         let playerSelection = userInput.toLowerCase();
         console.log("game", i);
 
