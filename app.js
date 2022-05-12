@@ -4,6 +4,39 @@ let choices = ["rock", "paper", "scissors"];
 let playerScore = 0;
 let computerScore = 0;
 
+// getting the game number
+
+let battles = document.querySelectorAll(".battle");
+let numberText = document.querySelector(".numberText")
+
+
+    let getGameNumber = battles.forEach(battle => {
+        battle.addEventListener("click", (e) => {
+            let battleNumber = e.target.textContent;
+            numberText.innerHTML = `you will be playing ${battleNumber} games against computer`;
+            console.log(battleNumber)
+        }, false)
+    })
+
+// choosing the weapons
+
+let weapons = document.querySelectorAll(".weapon-choice");
+
+let chosenWeapon = weapons.forEach( weapon => {
+    weapon.addEventListener("click", (e) => {
+        // console.log(e.target)
+        if(e.target.tagName ==="BUTTON" ) {
+            console.log(`i choose ${e.target.textContent}`)
+        }
+    })
+})
+
+
+
+
+
+
+
 function computerPlay() {
     const randomChoice = Math.floor(Math.random() * choices.length);    //gets the  0,1,2 -randomly 
     const randomName = choices[randomChoice];   // put the random number into an array, giving us random name
@@ -57,7 +90,7 @@ playRound();
 // console.log(result);
 
 function game() {
-    for (let i = 1; i < 6; i++) {
+    for (let i = getGameNumber; i < getGameNumber; i++) {
         // let userInput = prompt("what's your choice? rock-paper-scissors");
         let playerSelection = userInput.toLowerCase();
         console.log("game", i);

@@ -16,8 +16,9 @@ body {
     text-align: center;
     font-family: 'Poppins', sans-serif;
     font-weight: 400;
-    min-height: 100vh;
+    
 }
+
 
 .container{
     display: flex;
@@ -59,6 +60,10 @@ body {
     transform: scale(1.1);
 }
 
+.battle-number button:focus {
+    background-color: #DEB6AB;
+    border: 2px solid #85586F;  
+}
 .intro {
     margin: 2em 0;
     font-size:1.3em;
