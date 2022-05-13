@@ -1,88 +1,108 @@
 // it selects the random string
 
-let choices = ["rock", "paper", "scissors"];
+let choices = ["Rock🪨", "Paper📰", "Scissors✂️"];
 let playerScore = 0;
 let computerScore = 0;
 
 // getting the game number
 
 let battles = document.querySelectorAll(".battle");
-let numberText = document.querySelector(".numberText")
+let numberText = document.querySelector(".numberText");
 
-
-    let getGameNumber = battles.forEach(battle => {
-        battle.addEventListener("click", (e) => {
-            let battleNumber = e.target.textContent;
-            numberText.innerHTML = `you will be playing ${battleNumber} games against computer`;
-            console.log(battleNumber)
-        }, false)
-    })
+let getGameNumber = battles.forEach((battle) => {
+  battle.addEventListener(
+    "click",
+    (e) => {
+      let battleNumber = e.target.textContent;
+      numberText.innerHTML = `you will be playing ${battleNumber} games against computer`;
+      console.log(battleNumber);
+    },
+    false
+  );
+});
 
 // choosing the weapons
 
 let weapons = document.querySelectorAll(".weapon-choice");
+let roundResult = document.querySelector(".round-result");
+let remove = document.querySelector("#remove");
 
-let chosenWeapon = weapons.forEach( weapon => {
+// let chosenWeapon = weapons.forEach( weapon => {
+//     weapon.addEventListener("click", (e) => {
+//         // console.log(e.target)
+
+//         if(e.target.tagName ==="BUTTON" ) {
+//             roundResult.innerHTML = `i choose ${e.target.textContent} vs computer choose ${randomName}` ;
+//             remove.classList.add("remove1");
+//             console.log(`i choose ${e.target.textContent}`)
+//         }
+//     })
+// })
+
+function playerChoose() {
+  weapons.forEach((weapon) => {
     weapon.addEventListener("click", (e) => {
-        // console.log(e.target)
-        if(e.target.tagName ==="BUTTON" ) {
-            console.log(`i choose ${e.target.textContent}`)
-        }
-    })
-})
+      // console.log(e.target)
 
-
-
-
-
-
+      // let chosenWeapon = e.target.textContent;
+      // console.log(chosenWeapon)
+      if (e.target.tagName === "BUTTON") {
+        roundResult.innerHTML = `i choose ${e.target.textContent}`;
+        remove.classList.add("remove1");
+        console.log(`i choose ${e.target.textContent}`);
+      }
+    });
+  });
+}
+playerChoose();
 
 function computerPlay() {
-    const randomChoice = Math.floor(Math.random() * choices.length);    //gets the  0,1,2 -randomly 
-    const randomName = choices[randomChoice];   // put the random number into an array, giving us random name
-    return randomName;
-    // console.log(randomName);
-}
+  const randomChoice = Math.floor(Math.random() * choices.length); //gets the  0,1,2 -randomly
+  const randomName = choices[randomChoice]; // put the random number into an array, giving us random name
+  console.log(randomName);
+  return randomName;
 
+  
+}
 computerPlay();
 
 //
 
 function playRound(playerSelection, computerSelection) {
-    if (playerSelection == "rock" && computerSelection == "rock") {
-        return "you both choose rock, it's a tie ! try again...";
-    }
+  if (playerSelection == "rock" && computerSelection == "rock") {
+    return "you both choose rock, it's a tie ! try again...";
+  }
 
-    if (playerSelection == "paper" && computerSelection == "paper") {
-        return "you both choose paper, it's a tie ! try again...";
-    }
+  if (playerSelection == "paper" && computerSelection == "paper") {
+    return "you both choose paper, it's a tie ! try again...";
+  }
 
-    if (playerSelection == "scissors" && computerSelection == "scissors") {
-        return "you both choose scissors, it's a tie ! try again...";
-    }
+  if (playerSelection == "scissors" && computerSelection == "scissors") {
+    return "you both choose scissors, it's a tie ! try again...";
+  }
 
-    if (playerSelection == "rock" && computerSelection == "paper") {
-        return "you lose! paper beats rock";
-    }
+  if (playerSelection == "rock" && computerSelection == "paper") {
+    return "you lose! paper beats rock";
+  }
 
-    if (playerSelection == "paper" && computerSelection == "rock") {
-        return "you win! paper beats rock";
-    }
+  if (playerSelection == "paper" && computerSelection == "rock") {
+    return "you win! paper beats rock";
+  }
 
-    if (playerSelection == "paper" && computerSelection == "scissors") {
-        return "you lose! scissors beats paper";
-    }
+  if (playerSelection == "paper" && computerSelection == "scissors") {
+    return "you lose! scissors beats paper";
+  }
 
-    if (playerSelection == "scissors" && computerSelection == "paper")
-        return "you win! scissors beats paper";
+  if (playerSelection == "scissors" && computerSelection == "paper")
+    return "you win! scissors beats paper";
 
-    if (playerSelection == "scissors" && computerSelection == "rock") {
-        return "you lose! rock beats scissors";
-    }
+  if (playerSelection == "scissors" && computerSelection == "rock") {
+    return "you lose! rock beats scissors";
+  }
 
-    if (playerSelection == "rock" && computerSelection == "scissors") {
-        return "you win! rock beats scissors";
-    }
+  if (playerSelection == "rock" && computerSelection == "scissors") {
+    return "you win! rock beats scissors";
+  }
 }
 playRound();
 
@@ -90,44 +110,46 @@ playRound();
 // console.log(result);
 
 function game() {
-    for (let i = getGameNumber; i < getGameNumber; i++) {
-        // let userInput = prompt("what's your choice? rock-paper-scissors");
-        let playerSelection = userInput.toLowerCase();
-        console.log("game", i);
+  for (let i = getGameNumber; i < getGameNumber; i++) {
+    // let userInput = prompt("what's your choice? rock-paper-scissors");
+    // let playerSelection = userInput.toLowerCase();
+    // console.log("game", i);
+    // let playerSelection = chosenWeapon;
+    console.log(playerSelection);
 
-        let computerSelection = computerPlay();
-        console.log(`you picked ${playerSelection}`);
+    let computerSelection = computerPlay();
+    console.log(`you picked ${playerSelection}`);
 
-        let result = playRound(playerSelection, computerSelection);
-        console.log(result);
-        
-        // calculating the score and displaying at each game
+    let result = playRound(playerSelection, computerSelection);
+    console.log(result);
 
-        if (result.includes("win")) {
-            playerScore++;
-        } else if (result.includes("lose")) {
-            computerScore++;
-        } else if (result.includes("tie")) {
-            playerScore;
-            computerScore;
-        }
+    // calculating the score and displaying at each game
 
-        console.log(`player score is ${playerScore}`);
-        console.log(`computer score is ${computerScore}`);
+    if (result.includes("win")) {
+      playerScore++;
+    } else if (result.includes("lose")) {
+      computerScore++;
+    } else if (result.includes("tie")) {
+      playerScore;
+      computerScore;
     }
 
-    // displaying winner after the 5 game is over
+    console.log(`player score is ${playerScore}`);
+    console.log(`computer score is ${computerScore}`);
+  }
 
-    function winner() {
-        if (computerScore > playerScore) {
-            console.log("computer wins, best of luck next time");
-        } else if (playerScore > computerScore) {
-            console.log("you're natural, suck it up AI");
-        } else if (playerScore == computerScore) {
-            console.log("you both suck, try again");
-        }
+  // displaying winner after the 5 game is over
+
+  function winner() {
+    if (computerScore > playerScore) {
+      console.log("computer wins, best of luck next time");
+    } else if (playerScore > computerScore) {
+      console.log("you're natural, suck it up AI");
+    } else if (playerScore == computerScore) {
+      console.log("you both suck, try again");
     }
-    winner();
+  }
+  winner();
 }
 
 game();
