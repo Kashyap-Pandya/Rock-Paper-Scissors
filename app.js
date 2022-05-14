@@ -10,9 +10,7 @@ let battles = document.querySelectorAll(".battle");
 let numberText = document.querySelector(".numberText");
 
 let getGameNumber = battles.forEach((battle) => {
-  battle.addEventListener(
-    "click",
-    (e) => {
+  battle.addEventListener("click",(e) => {
       let battleNumber = e.target.textContent;
       numberText.innerHTML = `you will be playing ${battleNumber} games against computer`;
       console.log(battleNumber);
@@ -49,7 +47,7 @@ function playerChoose() {
       if (e.target.tagName === "BUTTON") {
         roundResult.innerHTML = `i choose ${e.target.textContent}`;
         remove.classList.add("remove1");
-        console.log(`i choose ${e.target.textContent}`);
+        // console.log(`i choose ${e.target.textContent}`);
       }
     });
   });
@@ -59,48 +57,57 @@ playerChoose();
 function computerPlay() {
   const randomChoice = Math.floor(Math.random() * choices.length); //gets the  0,1,2 -randomly
   const randomName = choices[randomChoice]; // put the random number into an array, giving us random name
-  console.log(randomName);
-  return randomName;
+  // console.log(randomName);
 
-  
-}
-computerPlay();
+  weapons.forEach(weapon => {
+  weapon.addEventListener("click", () => 
+  roundResult.innerHTML += `<br>Vs <br> Computer choose ${randomName}`
+  )
+  return randomName;
+  });
+
+  }
+
+  computerPlay();
+
+
+
 
 //
 
 function playRound(playerSelection, computerSelection) {
-  if (playerSelection == "rock" && computerSelection == "rock") {
+  if (playerSelection == "Rock🪨" && computerSelection == "Rock🪨") {
     return "you both choose rock, it's a tie ! try again...";
   }
 
-  if (playerSelection == "paper" && computerSelection == "paper") {
+  if (playerSelection == "Paper📰" && computerSelection == "Paper📰") {
     return "you both choose paper, it's a tie ! try again...";
   }
 
-  if (playerSelection == "scissors" && computerSelection == "scissors") {
+  if (playerSelection == "Scissors✂️" && computerSelection == "Scissors✂️") {
     return "you both choose scissors, it's a tie ! try again...";
   }
 
-  if (playerSelection == "rock" && computerSelection == "paper") {
+  if (playerSelection == "Rock🪨" && computerSelection == "Paper📰") {
     return "you lose! paper beats rock";
   }
 
-  if (playerSelection == "paper" && computerSelection == "rock") {
+  if (playerSelection == "Paper📰" && computerSelection == "Rock🪨") {
     return "you win! paper beats rock";
   }
 
-  if (playerSelection == "paper" && computerSelection == "scissors") {
+  if (playerSelection == "Paper📰" && computerSelection == "Scissors✂️") {
     return "you lose! scissors beats paper";
   }
 
-  if (playerSelection == "scissors" && computerSelection == "paper")
+  if (playerSelection == "Scissors✂️" && computerSelection == "Paper📰")
     return "you win! scissors beats paper";
 
-  if (playerSelection == "scissors" && computerSelection == "rock") {
+  if (playerSelection == "Scissors✂️" && computerSelection == "Rock🪨") {
     return "you lose! rock beats scissors";
   }
 
-  if (playerSelection == "rock" && computerSelection == "scissors") {
+  if (playerSelection == "Rock🪨" && computerSelection == "Scissors✂️") {
     return "you win! rock beats scissors";
   }
 }
@@ -114,11 +121,11 @@ function game() {
     // let userInput = prompt("what's your choice? rock-paper-scissors");
     // let playerSelection = userInput.toLowerCase();
     // console.log("game", i);
-    // let playerSelection = chosenWeapon;
+    let playerSelection = playerChoose();
     console.log(playerSelection);
 
     let computerSelection = computerPlay();
-    console.log(`you picked ${playerSelection}`);
+    // console.log(`you picked ${playerSelection}`);
 
     let result = playRound(playerSelection, computerSelection);
     console.log(result);
